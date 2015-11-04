@@ -8,6 +8,7 @@ public class Person {
 	private String email;
 	private String dateOfBirth;
 	private String gender;
+	private String idNumber;
 
 	public Person() {
 
@@ -23,6 +24,14 @@ public class Person {
 		this.dateOfBirth = dateOfBirth;
 		this.gender = gender;
 
+	}
+
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
 	}
 
 	public String getFirstName() {

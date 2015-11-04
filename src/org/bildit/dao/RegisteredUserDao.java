@@ -11,5 +11,7 @@ public interface RegisteredUserDao {
 	List<RegisteredUser> getUsers();
 
 	RegisteredUser findUser(String username, String password);
+	
+	List<String> listOfUsernames();
 
 }

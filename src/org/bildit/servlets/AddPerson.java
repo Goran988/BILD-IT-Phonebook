@@ -46,7 +46,7 @@ public class AddPerson extends HttpServlet {
 		person.setGender(gender);
 		personDao.addPersonToDB(person);
 		response.getWriter().println("Success");
-		response.sendRedirect("wellcomeScreen.html");
+		response.sendRedirect("wellcomeScreen.jsp");
 		}
 		else{
 			response.getWriter().println("<h3>Validation failed, try again</h3>");

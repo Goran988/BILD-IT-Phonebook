@@ -7,11 +7,12 @@ import org.bildit.dao.RegisteredUserDao;
 import org.bildit.data.RegisteredUserData;
 
 public class Validation {
+
 	public static boolean validateFirstName(String firstName) {
 		if (firstName != null & firstName.length() >= 4
 				&& firstName.length() <= 15) {
-			if(firstName.matches("[A-Za-z]+"))
-			return true;
+			if (firstName.matches("[A-Za-z]+"))
+				return true;
 		}
 		return false;
 	}
@@ -27,9 +28,12 @@ public class Validation {
 	public static boolean validateUsername(String username) {
 		if (username != null & username.length() >= 4
 				&& username.length() <= 10) {
+
 			return true;
-		} else
+		} else {
 			return false;
+
+		}
 	}
 
 	public static boolean usernameFree(String username) {

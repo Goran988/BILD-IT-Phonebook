@@ -15,7 +15,7 @@
 			<label>First name</label> <input name="firstName"> <br>
 			<br> <label>Last name</label> <input name="lastName"> <br>
 			<br>
-			<button type="submit" name="submit">search</button>
+			<button type="submit"  class="btn btn-primary" name="submit">search</button>
 			<br>
 		</form>
 	</div>

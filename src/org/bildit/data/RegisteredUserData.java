@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bildit.beans.Person;
 import org.bildit.beans.RegisteredUser;
 import org.bildit.dao.RegisteredUserDao;
 import org.bildit.utility.DBConnection;
@@ -58,9 +57,28 @@ public class RegisteredUserData implements RegisteredUserDao {
 					&& registeredUser.getPassword().equals(password)) {
 				return registeredUser;
 			}
-			
+
 		}
 		return null;
+
+	}
+
+	public List<String> listOfUsernames() {
+		List<String> list = new ArrayList<>();
+		String selectUsernames = "SELECT username FROM user";
+		try (Connection connection = DBConnection.connect();
+				PreparedStatement stmnt = connection
+						.prepareStatement(selectUsernames);
+				ResultSet rs = stmnt.executeQuery()) {
+			while(rs.next()){
+				list.add(rs.getString(1));
+			}
+
+		}catch(SQLException | NullPointerException ex){
+			ex.printStackTrace();
+			
+		}
+		return list;
 
 	}
 }

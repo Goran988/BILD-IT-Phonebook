@@ -23,13 +23,14 @@ public class PersonData implements PersonDao {
 				ResultSet rs = stmnt.executeQuery()) {
 			while (rs.next()) {
 				Person person = new Person();
-				person.setFirstName(rs.getString(1));
-				person.setLastName(rs.getString(2));
-				person.setPhoneNumber(rs.getString(3));
-				person.setAddress(rs.getString(4));
-				person.setEmail(rs.getString(5));
-				person.setDateOfBirth(rs.getString(6));
-				person.setGender(rs.getString(7));
+				person.setIdNumber(rs.getString(1));
+				person.setFirstName(rs.getString(2));
+				person.setLastName(rs.getString(3));
+				person.setPhoneNumber(rs.getString(4));
+				person.setAddress(rs.getString(5));
+				person.setEmail(rs.getString(6));
+				person.setDateOfBirth(rs.getString(7));
+				person.setGender(rs.getString(8));
 				list.add(person);
 			}
 		} catch (SQLException | NullPointerException ex) {
@@ -69,4 +70,48 @@ public class PersonData implements PersonDao {
 		return matches;
 	}
 
+	public List<Person> deletePerson(String firstName, String lastName) {
+		String select = "SELECT * FROM person WHERE first_name='" + firstName
+				+ "' AND last_name='" + lastName + "'";
+		String delete = "DELETE FROM person WHERE first_name='" + firstName
+				+ "' AND last_name='" + lastName + "'";
+		List<Person> listOfPersons = getPersons();
+		try (Connection connection = DBConnection.connect();
+				PreparedStatement stmnt = connection.prepareStatement(select);
+				ResultSet rs = stmnt.executeQuery();
+				PreparedStatement stmnt2 = connection.prepareStatement(delete)) {
+			while (rs.next()) {
+				Person person = new Person();
+				person.setIdNumber(rs.getString(1));
+				person.setFirstName(rs.getString(2));
+				person.setLastName(rs.getString(3));
+				person.setPhoneNumber(rs.getString(4));
+				person.setAddress(rs.getString(5));
+				person.setEmail(rs.getString(6));
+				person.setDateOfBirth(rs.getString(7));
+				person.setDateOfBirth(rs.getString(8));
+				listOfPersons.add(person);
+
+			}
+			if (listOfPersons.size() == 1) {
+				
+				stmnt2.executeUpdate();
+			}
+		} catch (SQLException | NullPointerException ex) {
+			ex.printStackTrace();
+		}
+		return listOfPersons;
+
+	}
+
+	public void deleteById(String id) {
+		String delete = "DELETE FROM person WHERE id_num='" + id + "'";
+		try (Connection connection = DBConnection.connect();
+				PreparedStatement stmnt = connection.prepareStatement(delete)) {
+			stmnt.executeUpdate();
+		} catch (SQLException | NullPointerException ex) {
+			ex.printStackTrace();
+		}
+
+	}
 }

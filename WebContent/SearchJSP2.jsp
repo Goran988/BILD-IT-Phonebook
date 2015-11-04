@@ -3,7 +3,7 @@
 
 <!-- taglib directive -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -26,6 +26,7 @@
 					<div class="col-xs-12">
 						<table class="table table-bordered">
 							<tr>
+								<td>Id number</td>
 								<td>First name</td>
 								<td>Last name</td>
 								<td>Phone number</td>
@@ -37,6 +38,7 @@
 
 								<c:forEach items="${list }" var="person">
 									<tr>
+										<td><c:out value="${person.idNumber }" /></td>
 										<td><c:out value="${person.firstName }" /></td>
 										<td><c:out value="${person.lastName}" /></td>
 										<td><c:out value="${person.phoneNumber}" /></td>

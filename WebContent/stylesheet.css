@@ -48,6 +48,10 @@ label {
 	
 }
 
+login{
+	color:white;
+	text-align:left;
+}
 .wellcome {
 	text-align: center;
 	color:white;
@@ -63,6 +67,7 @@ h1 {
 }
 
 .searchPerson {
+	padding-top:5%;
 	padding-left: 10%;
 }
 td{
@@ -74,4 +79,11 @@ p{
 }
 #addPerson{
 	padding-left: 10%
+}
+#loged{
+	text-align:right;
+	padding-right:15%;
+}
+h2{
+	color:white;
 }

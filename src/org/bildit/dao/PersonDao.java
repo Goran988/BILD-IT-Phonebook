@@ -11,6 +11,8 @@ public interface PersonDao {
 
 	List<Person> searchPerson(String firstName, String lastName);
 
-	
+	List<Person> deletePerson(String firstName, String lastName);
+
+	void deleteById(String id);
 
 }
