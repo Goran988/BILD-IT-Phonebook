@@ -14,6 +14,10 @@
 <title>Login</title>
 </head>
 <body>
+<p id="loged">
+			Loged in as:
+			<c:out value="${user.username }" />
+		</p>
 	<div class="searchPerson">
 		<h2 class="login">Enter your username and password please:</h2>
 		<form method="get" action="LoginServlet">

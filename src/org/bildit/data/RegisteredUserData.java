@@ -38,8 +38,8 @@ public class RegisteredUserData implements RegisteredUserDao {
 				ResultSet rs = stmnt.executeQuery()) {
 			while (rs.next()) {
 				RegisteredUser registeredUser = new RegisteredUser();
-				registeredUser.setUsername(rs.getString(2));
-				registeredUser.setPassword(rs.getString(3));
+				registeredUser.setUsername(rs.getString(1));
+				registeredUser.setPassword(rs.getString(2));
 
 				list.add(registeredUser);
 			}
@@ -70,13 +70,13 @@ public class RegisteredUserData implements RegisteredUserDao {
 				PreparedStatement stmnt = connection
 						.prepareStatement(selectUsernames);
 				ResultSet rs = stmnt.executeQuery()) {
-			while(rs.next()){
+			while (rs.next()) {
 				list.add(rs.getString(1));
 			}
 
-		}catch(SQLException | NullPointerException ex){
+		} catch (SQLException | NullPointerException ex) {
 			ex.printStackTrace();
-			
+
 		}
 		return list;
 

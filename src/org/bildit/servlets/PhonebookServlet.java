@@ -35,11 +35,20 @@ public class PhonebookServlet extends HttpServlet {
 				response.sendRedirect("searchPerson.jsp");
 				return;
 
+			} else if (action.equals("Edit")) {
+				PersonDao personDao = new PersonData();
+				List<Person> list = personDao.getPersons();
+				request.getSession().setAttribute("allUsers", list);
+				response.sendRedirect("editPerson.jsp");
 			} else if (action.equals("Delete")) {
 				PersonDao personDao = new PersonData();
 				List<Person> list = personDao.getPersons();
 				request.getSession().setAttribute("allUsers", list);
 				response.sendRedirect("userDeleted.jsp");
+			} else if (action.equals("Logout")) {
+				request.getSession().invalidate();
+				
+				response.sendRedirect("loginPage.jsp");
 			}
 		}
 	}

@@ -12,7 +12,11 @@ public interface PersonDao {
 	List<Person> searchPerson(String firstName, String lastName);
 
 	List<Person> deletePerson(String firstName, String lastName);
+	
+	void editPerson(Person person, String id);
 
 	void deleteById(String id);
+	
+	Person findById(String id);
 
 }

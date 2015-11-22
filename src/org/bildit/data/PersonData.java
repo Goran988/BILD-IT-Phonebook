@@ -94,7 +94,7 @@ public class PersonData implements PersonDao {
 
 			}
 			if (listOfPersons.size() == 1) {
-				
+
 				stmnt2.executeUpdate();
 			}
 		} catch (SQLException | NullPointerException ex) {
@@ -113,5 +113,49 @@ public class PersonData implements PersonDao {
 			ex.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public void editPerson(Person person, String id) {
+		String edit = "UPDATE  person SET first_name=?, last_name=?, phone_number=?,  address=?, email=?, date_of_birth=?, gender=? WHERE id_num='"
+				+ id + "'";
+		try (Connection connection = DBConnection.connect();
+				PreparedStatement stmnt = connection.prepareStatement(edit);) {
+			stmnt.setString(1, person.getFirstName());
+			stmnt.setString(2, person.getLastName());
+			stmnt.setString(3, person.getPhoneNumber());
+			stmnt.setString(4, person.getAddress());
+			stmnt.setString(5, person.getEmail());
+			stmnt.setString(6, person.getDateOfBirth());
+			stmnt.setString(7, person.getGender());
+			stmnt.executeUpdate();
+		} catch (SQLException | NullPointerException ex) {
+			ex.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public Person findById(String id) {
+		String select = "SELECT * FROM person WHERE id_num='" + id + "'";
+		Person person = new Person();
+		try (Connection connection = DBConnection.connect();
+				PreparedStatement stmnt = connection.prepareStatement(select);
+				ResultSet rs = stmnt.executeQuery()) {
+			if (rs.next()) {
+				person.setIdNumber(rs.getString(1));
+				person.setFirstName(rs.getString(2));
+				person.setLastName(rs.getString(3));
+				person.setPhoneNumber(rs.getString(4));
+				person.setAddress(rs.getString(5));
+				person.setEmail(rs.getString(6));
+				person.setDateOfBirth(rs.getString(7));
+				person.setGender(rs.getString(8));
+			}
+		} catch (SQLException | NullPointerException ex) {
+			ex.printStackTrace();
+		}
+		System.out.println(person.getFirstName());
+		return person;
 	}
 }

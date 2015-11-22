@@ -15,6 +15,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<p id="loged">
+			Loged in as:
+			<c:out value="${user.username }" />
+		</p>
 	<c:choose>
 		<c:when test="${ fn:length(list)==0}">
 			<h3>We found no results for your search</h3>
