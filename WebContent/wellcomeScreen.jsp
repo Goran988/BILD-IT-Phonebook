@@ -11,6 +11,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="bootstrap/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/validation.js"></script>
 <title>Wellcome</title>
 </head>
 <body>

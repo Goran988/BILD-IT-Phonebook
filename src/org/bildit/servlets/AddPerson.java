@@ -30,8 +30,11 @@ public class AddPerson extends HttpServlet {
 		PersonDao personDao = new PersonData();
 		Person person = new Person();
 		String firstName = request.getParameter("firstName");
+		System.out.println(firstName);
 		String lastName = request.getParameter("lastName");
+		System.out.println(lastName);
 		String phoneNumber = request.getParameter("phoneNumber");
+		System.out.println(phoneNumber);
 		String address = request.getParameter("address");
 		String email = request.getParameter("email");
 		String dateOfBirth = request.getParameter("dateOfBirth");

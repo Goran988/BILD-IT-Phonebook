@@ -19,14 +19,14 @@ import org.bildit.utility.Validation;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	RegisteredUserDao registeredUserDao = new RegisteredUserData();
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
+	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		RegisteredUserDao registeredUserDao = new RegisteredUserData();
 		if (request.getParameter("submit") != null) {
 			String submit = request.getParameter("submit");
 			if (submit.equals("login")) {
@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 					response.sendRedirect("loginPage.jsp");
 				}
 
-			} else if (submit.equals("guest")) {
+			} else if (submit.equals("cancel")) {
 				RegisteredUser registeredUser = new RegisteredUser("Guest",
 						"Guest");
 
@@ -73,6 +73,23 @@ public class LoginServlet extends HttpServlet {
 					request.getSession().setAttribute("message", message);
 					response.sendRedirect("loginPage.jsp");
 				}
+			}
+		}
+	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String username = request.getParameter("username");
+		String reply = "";
+		if (username!=null) {
+			if (Validation.usernameFree(username)) {
+				reply = "<class=\"error\">Username does not exists in database.</p>";
+//				response.setContentType("text/html");
+				response.getWriter().write(reply);
+			} else if (!Validation.usernameFree(username)) {
+				reply = "<p class=\"success\">Username exists in database.</p>";
+//				response.setContentType("text/html");
+				response.getWriter().write(reply);
 			}
 		}
 	}

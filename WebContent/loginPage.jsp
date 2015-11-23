@@ -10,18 +10,16 @@
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/validation.js"></script>
+<script src="js/login.js"></script>
 <title>Login</title>
 </head>
 <body>
-<p id="loged">
-			Loged in as:
-			<c:out value="${user.username }" />
-		</p>
+
 	<div class="searchPerson">
 		<h2 class="login">Enter your username and password please:</h2>
-		<form method="get" action="LoginServlet">
-			<label>Username</label><br> <input name="username"> <br>
+		<form method="post" action="LoginServlet" id="loginForm">
+			<label>Username</label><br> <input name="username" id="username">
+			<span id="usernameMessage"></span> <br>
 			<label>Password</label><br> <input type="password"
 				name="password"> <br> <br>
 			<button type="submit" class="btn btn-primary" name="submit"
@@ -29,7 +27,7 @@
 			<button type="submit" class="btn btn-primary" name="submit"
 				value="register">Register</button>
 			<h2>To login as guest:</h2>
-			<button type="submit"  class="btn btn-primary" name="submit" value="guest">Guest</button>
+			<button type="submit"  class="btn btn-primary" name="submit" value="cancel">Guest</button>
 			
 			<h3><c:out value="${sessionScope.message }"/></h3>
 			
