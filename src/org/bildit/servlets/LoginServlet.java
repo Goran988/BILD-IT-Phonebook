@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.bildit.beans.RegisteredUser;
 import org.bildit.dao.RegisteredUserDao;
 import org.bildit.data.RegisteredUserData;
-import org.bildit.utility.Validation;
+import org.bildit.utility.Validation;	
 
 /**
  * Servlet implementation class LoginServlet
@@ -84,11 +84,11 @@ public class LoginServlet extends HttpServlet {
 		if (username!=null) {
 			if (Validation.usernameFree(username)) {
 				reply = "<class=\"error\">Username does not exists in database.</p>";
-//				response.setContentType("text/html");
+				response.setContentType("text/html");
 				response.getWriter().write(reply);
 			} else if (!Validation.usernameFree(username)) {
 				reply = "<p class=\"success\">Username exists in database.</p>";
-//				response.setContentType("text/html");
+				response.setContentType("text/html");
 				response.getWriter().write(reply);
 			}
 		}
