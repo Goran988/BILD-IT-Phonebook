@@ -12,7 +12,9 @@ import org.bildit.dao.RegisteredUserDao;
 import org.bildit.utility.DBConnection;
 
 public class RegisteredUserData implements RegisteredUserDao {
-
+	/**
+	 * method used to register new user
+	 */
 	@Override
 	public void addUserToDb(RegisteredUser registeredUser) {
 		String sqlAdd = "INSERT INTO user (username, password) VALUES(?,?)";
@@ -27,7 +29,9 @@ public class RegisteredUserData implements RegisteredUserDao {
 		}
 
 	}
-
+	/**
+	 * method used to get list of all registered users
+	 */
 	@Override
 	public List<RegisteredUser> getUsers() {
 		List<RegisteredUser> list = new ArrayList<>();
@@ -48,7 +52,9 @@ public class RegisteredUserData implements RegisteredUserDao {
 		}
 		return list;
 	}
-
+	/**
+	 * method used to find user by username and password
+	 */
 	@Override
 	public RegisteredUser findUser(String username, String password) {
 		List<RegisteredUser> list = getUsers();
@@ -62,7 +68,9 @@ public class RegisteredUserData implements RegisteredUserDao {
 		return null;
 
 	}
-
+	/**
+	 * method used to return list of all usernames
+	 */
 	public List<String> listOfUsernames() {
 		List<String> list = new ArrayList<>();
 		String selectUsernames = "SELECT username FROM user";

@@ -16,10 +16,9 @@
 	</p>
 	<div class="searchPerson">
 		<h1>Enter your search:</h1>
-		<form method="get" action="SearchUser">
-			<label>First name</label> <input name="firstName"> <br>
-			<br> <label>Last name</label> <input name="lastName"> <br>
-			<br>
+		<form method="post" action="SearchUser">
+			<label>Search term(name, last name or gender)</label><br> <input name="searchTerm"> <br>
+			<br> 
 			<button type="submit" class="btn btn-primary" name="submit">search</button>
 			<br>
 		</form>

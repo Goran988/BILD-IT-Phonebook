@@ -24,13 +24,17 @@ public class SearchUser extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		PersonDao personDao = new PersonData();
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
-		List<Person> list = personDao.searchPerson(firstName, lastName);
+		String searchTerm = request.getParameter("searchTerm");
+		System.out.println(searchTerm);
+		List<Person> list = personDao.findAnyMatch(searchTerm);
+		if(list.size()!=0)
+		System.out.println(list.get(0).getFirstName());
 		request.getSession().setAttribute("list", list);
-		response.sendRedirect("SearchJSP2.jsp");
+		response.sendRedirect("Search.jsp");
 	}
 }

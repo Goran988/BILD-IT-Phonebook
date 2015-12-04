@@ -1,5 +1,10 @@
 package org.bildit.beans;
 
+/**
+ * 
+ * @author Goran Class person used to store values of people to be added and
+ *         looked for in the database
+ */
 public class Person {
 	private String firstName;
 	private String lastName;
@@ -14,8 +19,8 @@ public class Person {
 
 	}
 
-	Person(String firstName, String lastName, String phoneNumber,
-			String address, String email, String dateOfBirth, String gender) {
+	Person(String firstName, String lastName, String phoneNumber, String address, String email, String dateOfBirth,
+			String gender) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;

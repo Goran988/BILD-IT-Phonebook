@@ -18,5 +18,6 @@ public interface PersonDao {
 	void deleteById(String id);
 	
 	Person findById(String id);
+	List<Person> findAnyMatch(String searchTerm);
 
 }

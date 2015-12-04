@@ -13,7 +13,7 @@ public class DBConnection {
 		Connection connection = null;
 
 		try {
-
+			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(DATABASE, USERNAME,
 					PASSWORD);
 		} catch (Exception ex) {

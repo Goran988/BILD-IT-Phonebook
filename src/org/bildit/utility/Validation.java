@@ -5,7 +5,10 @@ import java.util.List;
 import org.bildit.beans.RegisteredUser;
 import org.bildit.dao.RegisteredUserDao;
 import org.bildit.data.RegisteredUserData;
-
+/**
+ * class that contains method used for some basic validation
+ *
+ */
 public class Validation {
 
 	public static boolean validateFirstName(String firstName) {

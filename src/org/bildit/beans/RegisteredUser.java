@@ -1,5 +1,10 @@
 package org.bildit.beans;
-
+/**
+ * 
+ * @author Goran
+ *Class RegisteredUser is used to track user loged in
+ *
+ */
 public class RegisteredUser {
 	private String username;
 	private String password;
